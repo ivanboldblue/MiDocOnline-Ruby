@@ -1,0 +1,18 @@
+.popup-overlay
+.popup-container4
+  .popup-info4{:style => 'background: rgba(30, 136, 214, 1.00) none repeat scroll 0 0;'}
+    %span.popup-closebtn#popup-closebtn{:style => 'float:right;margin-right:13px;'}
+      %a{:href => 'javascript:void(0)'} X
+    .content-txt
+      / popup slider code start
+      .middleImg
+        %p Thank you for contacting us.
+
+:javascript
+  $('.popup-info,.popup-container4').addClass('formulaBlogpop');
+  $('.formulaBlogpop').show();
+  $(document).ready(function(){
+    $('#popup-closebtn').click(function(){
+       $('.formulaBlogpop').hide();
+    });
+  });

@@ -1,0 +1,15 @@
+.warper.container-fluid
+  .page-header
+    %h1
+      News Posts
+  .clearfix
+  .col-md-12.col-xs-10.content_txt.reportedPostPage.row
+    %div.editDropdown
+    %ul#myTab.nav.nav-tabs{:role => "tablist"}
+      %li.active
+        %a.pendingImages{:href => "javascript:void(0)"} Posts
+      - if false
+        %li
+          %a.acceptedImages{:href => new_news_post_path} Add New
+    = render :partial => 'form'
+  .clearfix

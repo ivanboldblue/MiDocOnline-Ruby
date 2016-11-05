@@ -1,0 +1,113 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "UTF-8"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %title Midoconline
+    %link{:href => "https://quickblox.com/favicon.ico", :rel => "shortcut icon"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{:href => "main.css", :rel => "stylesheet"}
+    -#%script{:src => "/assets/quickblox.min.js"}
+    -#%script{:src => "/assets/mediajs.js"}
+    %script{:src => "/assets/config.js"}
+    %script{:src => "/assets/main.js"}
+  %body
+    .wrapper.webrtcp2p
+      %section.info
+        %p#infoMessage.center
+
+      %section.choose-user.center
+        %h3.light.text-center 
+        .users-wrap.caller
+          / Append users here
+      %section.connecting.center.hidden
+        .spinner
+          .bounce1
+          .bounce2
+          .bounce3
+      %section.chat.center.hidden
+        %section.choose-recipient.center
+          - if current_user.present? and current_user.type == 'Patient'
+            - if @hsh.count != 0
+              %h3.light.text-center Choose a Doctor to call
+            - else
+              %h3.light.text-center No Doctor to call
+          - elsif current_user.present? and current_user.type == 'Doctor'
+            - if @hsh.count != 0
+              %h3.light.text-center Choose a Patient to call
+            - else
+              %h3.light.text-center No Patient to call
+          - else
+            - if @hsh.count != 0
+              %h3.light.text-center Choose a User to call
+            - else
+              %h3.light.text-center No User to call
+
+
+          .users-wrap.recipient
+            / Append users here
+        .streams{:style => 'width:100%;display:none'}
+          .localControls{:style => 'width:48%;float:left'}
+            %span#callerName
+            %br
+              %video#localVideo
+              .mediacall-controls.l-flexbox.l-flexbox_flexcenter
+                -#%button.btn_mediacall.btn_camera_off{"data-action" => "mute", :disabled => ""}
+                -#  %img.btn-icon_mediacall{:alt => "camera", :src => "/assets/icon-camera-off.png"}/
+                -#%button.btn_mediacall.btn_mic_off{"data-action" => "mute", :disabled => ""}
+                -#  %img.btn-icon_mediacall{:alt => "mic", :src => "/assets/icon-mic-off.png"}/
+          .remoteControls{:style => 'width:48%;float:right'}
+            %span#calleeName
+            %br
+              %video#remoteVideo
+        .controls{:style => 'clear:both'}
+          %button#audiocall.btn.btn-default{:type => "button"}
+            %img.icon-audiocall{:alt => "QuickBlox", :src => "/assets/icon-audiocall.png"}
+              Audio call
+          %button#videocall.btn.btn-default{:type => "button"}
+            %img.icon-videocall{:alt => "QuickBlox Samples", :src => "/assets/icon-videocall.png"}
+              Video call
+          %button#hangup.btn.btn-default{:disabled => "", :type => "button"}
+            %img.icon-hangup{:alt => "QuickBlox Samples", :src => "/assets/icon-hangup.png"}
+              Hangup
+      .push
+    %section#incomingCall.incoming.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %span.info-notice
+              %span.incoming-callType
+              Call from
+              %span.caller
+          .modal-body
+            .incoming-call-controls.l-flexbox.l-flexbox_flexcenter
+              %button#reject.btn.btn-default.btn_decline Decline
+              %button#accept.btn.btn-default.btn_accept Accept
+    %audio#callingSignal{:loop => ""}
+      %source{:src => "/assets/audio/calling.ogg"}
+      %source{:src => "/assets/audio/calling.mp3"}
+    %audio#ringtoneSignal{:loop => ""}
+      %source{:src => "/assets/audio/ringtone.ogg"}
+      %source{:src => "/assets/audio/ringtone.mp3"}
+    %audio#endCallSignal
+      %source{:src => "/assets/audio/end_of_call.ogg"}
+      %source{:src => "/assets/audio/end_of_call.mp3"}
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"}
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"}
+
+:javascript
+  $(document).ready(function() {
+    CurrentUsr = "#{@user.qb_user_id}"
+    CurrentUsrId = "#{@user.id}"
+    CurrentUsrType = "#{@user.type}"
+    caller = {
+    id: "#{@user.qb_user_id}",
+    login: "#{@user.qb_login}",
+    password: "#{@user.qb_password}",
+    full_name: "#{@user.qb_name}",
+    colour: "#{@user.type == 'Doctor' ? '/assets/doctor_img2.png' : '/assets/patient_img2.png'}"
+    };
+    QBUsers = #{@hsh.to_json};
+    chooseRecipient(caller.id);
+  });
+  fbq('track', 'Purchase', {value: "#{session[:charge_amount]}", currency: 'USD'});

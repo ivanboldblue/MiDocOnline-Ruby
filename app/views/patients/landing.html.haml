@@ -1,0 +1,78 @@
+%section.contentArea.dentroArea.txtcenter.formulaBlog{:style => 'padding:100px 0 125px;'}
+  %section.formulaFormInfo.dentroblog.txtcenter
+    = form_tag '/charges/new', :id => 'speciality_form', :class => 'col s12', :method => 'get' do |f|
+      .row
+        .input-field.s12
+          %a.btn.waves-effect.waves-light.red{:href => '/doctor_listing?specialize=kids', :style => 'margin-bottom:10px;', :class => 'selectDrpdwn'}
+            = 'KIDS EMERGENCY'
+          %a.btn.waves-effect.waves-light.red{:href => '/doctor_listing?specialize=adult', :class => 'selectDrpdwn'}
+            = 'ADULT EMERGENCY'    
+      .row
+        .input-field.s12
+          = select_tag :specialize, options_for_select(["Alergólogo", "Cardiólogo", "Cirujano General", "Dermatólogo", "Dentista", "Endocrinólogo", "Gastroenterólogo", "Geriatra", "Ginecólogo", "Hematólogo", "Hepatólogo", "Medicina Interna", "Nefrólogo", "Neumólogo", "Neurólogo", "Nutriólogo", "Oftalmólogo", "Oncólogo", "Ortopedista", "Otorrinolaringólogo", "Pediatra", "Proctólogo", "Psicólogo", "Psiquiatra", "Reumatólogo", "Urólogo", "Urgenciólogo"], :selected => params[:specialize]), :prompt => 'Medical Speciality', :class => 'selectDrpdwn', :id => 'selectDrpdwnspeciality'
+          =# hidden_field_tag :specialize, '', :id => 'selectDrpdwnspecialityfield'
+      .row#doctorsdrmdwnlist
+        = render 'doctors_dropdown'
+      .row
+        .input-field.s12
+          %a.btn.waves-effect.waves-light{:href => history_patient_path(:id => current_user.id), :class => 'selectDrpdwn'}
+            = 'Visit & History'
+    .row.lastLeftbtn
+      .input-field.col.s12.txtcenter
+        %a.btn.waves-effect.waves-light.green.callbtn{:name => "action", :type => "submit", :style => 'width:200px'} CALL
+  
+
+
+.popup-overlay
+.popup-container4
+  .popup-info4
+    %span.popup-closebtn#popup-closebtn{:style => 'margin-left:10px;'}
+      %a{:href => 'javascript:void(0)'} X
+    .content-txt
+      / popup slider code start
+      .middleImg
+        %p#popupmsg Please select specialization to call doctor.
+
+
+:javascript
+  $(document).ready(function(){
+    $('.popup-info,.popup-container4').addClass('slideInDownss');
+    $('.slideInDownss').hide();
+    $('.callbtn').click(function(){
+      if ($('#selectDrpdwnspeciality').val().length > 0){
+        console.log($('#selectDrpdwnspeciality').val());
+        if ($('#selectdoctorDrpdwnspeciality').val().length > 0){
+          $('#speciality_form').submit();
+        }
+        else{
+          $('#popupmsg').html('Please select doctor to call.')
+          $('.slideInDownss').show();
+        }
+      }
+      else{
+        $('#popupmsg').html('Please select specialization to call doctor.')
+        $('.slideInDownss').show();
+      }
+    });
+    $('#selectDrpdwnspeciality').on('change', function(){
+      var specialize_name = $('#selectDrpdwnspeciality').val();
+      $.ajax({
+        type: 'get',
+        url: '/change_doctor_list.js',
+        data: { 'specialize' : specialize_name },
+          success: function(data){
+        },
+          error: function(data){
+        }
+      });
+      $('#selectDrpdwnspecialityfield').val($('#selectDrpdwnspeciality').val());
+    });
+    $('#popup-closebtn').click(function(){
+      $('.slideInDownss').hide();
+    });
+  });
+
+:css
+  .middleImg{padding:0px;}
+  .content-txt p {max-width:468px;}
+  .content-txt {padding:0 31px 28px;}

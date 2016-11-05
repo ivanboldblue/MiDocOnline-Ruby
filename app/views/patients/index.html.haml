@@ -1,0 +1,64 @@
+.warper.container-fluid{"data-ng-app" => "", "ng-controller" => "suggestionsController"}
+  .page-header
+    %h1
+      Patients
+    .download_xls
+      -#%a{:href => admin_suggestions_path(:format => :xls), :class => "newAdmGglFd"}
+        Download XLS    
+  .clearfix
+  .col-md-6.col-xs-10.content_txt.reportedPostPage.row
+    %div.editDropdown
+      %input.form-control.form-control-circle.content_search{:placeholder => "Type to search...", :type => "text", :style => "width:200px;height: 33px;margin-bottom:10px", 'ng-model' => 'name'}
+    %ul#myTab.nav.nav-tabs{:role => "tablist"}
+      %li.active
+        %a.pendingImages{:href => "javascript:void(0)"} Patients
+      - if false
+        %li
+          %a.acceptedImages{:href => "/accepted_suggestions_listing"} Winning
+        %li
+          %a.declinedImages{:href => "/rejected_suggestions_listing"} Meh
+        
+    #myTabContent.tab-content
+      #pendingImages.tab-pane.tabs-up.fade.in.active.panel.panel-default
+        .panel-body
+          %p{:style => "height:20px;"}
+          .show-grid{"ng-repeat" => "patient in patients | filter : name"}
+            .col-md-4.eDitPictur
+              .asfjga.desc
+                {{ patient.email }}
+            .col-md-6.eDitDatte
+              %a.btn.btn-primary.show-grid.disblebtn{:href => "patients/{{patient.id}}"}
+                %i.fa.fa-database 
+              - if false
+                %a.btn.btn-danger.show-grid.disblebtn{:href => "/admin/reject_suggetions?ids={{suggestion.id}}&p=true"}
+                  %i.fa.fa-trash
+                %a.btn.btn-success.show-grid.disblebtn.add_challenge{"data-target" => "#modal-addChallenge1", "data-toggle" => "modal", :href => "#", :for => "{{suggestion.id}}"}
+                  %i.fa.fa-check
+              - if false
+                %a.btn.btn-primary.show-grid.disblebtn{:href => "/admin/give_points_to_user?ids={{suggestion.id}}", 'data-confirm' =>'Are you sure?'}
+                  %i.fa.fa-database
+            .clearfix  
+          .clearfix  
+  .clearfix
+
+:css
+  .park_existing_chal_with_add_new{:display:none} 
+
+:javascript
+  $(document).ready(function(){
+    var blockWidth=parseInt($('.panel-body').css('width'));
+    $('.divActionButtons').css('left',(blockWidth-30) + 'px')
+  })
+  
+  
+:css
+  .eDitPictur {width: 40%;}
+  .eDitDatte {width: 56%;float: right;}
+
+
+:javascript
+  function suggestionsController($scope) {
+    $scope.table_headings = ['Id', 'User Id', 'Description', 'Suggested Date', 'Selected','']
+    $scope.patients = JSON.parse(#{@patients.to_json});
+  }      
+  

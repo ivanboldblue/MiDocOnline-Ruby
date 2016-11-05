@@ -1,0 +1,23 @@
+.container
+  .localBlog
+    %span
+      %a{:href => "javascript:void(0);"} LOCALIZATION
+    %span.emergencyCallbtn{:style => 'float:right;'}
+      %a{:href => video_chats_path(:doctor_type => 'adult-emergency')}
+        = 'ADULT EMERGENCY'
+    %span.emergencyCallbtn{:style => 'margin-right:10px;'}
+      %a{:href => video_chats_path(:doctor_type => 'kids-emergency')}
+        = 'KIDS EMERGENCY'
+        -#%img{:src => "/assets/phone-icon-new.bg.png"}
+  .llamadadoctorBlog
+    .llamadaImg
+      %img{:alt => "", :src => "/assets/llamada-doctor.png", :title => ""}
+        .llamadadoctorpos
+          .chatBlog
+            %a{:href => "#"} Live Support Chat
+            %a{:href => "#"} X
+          .chatBox
+            .chatname You are now connected with Ryan
+            .chat-comment Lorem ipsum dolor sit amet, consectetur
+            .chat-comment.right-chat Lorem ipsum dolor sit amet, consectetur
+          %input.chat-input{:placeholder => "Type your message...", :type => "text"}

@@ -1,0 +1,39 @@
+%section.contentArea_contactform.txtcenter.formulaBlog
+  .container
+    %h1 CONTACTANOS
+    %h6
+      =# notice
+    %section.formulaFormInfo.txtcenter
+      %span.formTag DATOS
+      .row
+        = form_for @contact, :class => 'col s12 tabinfo' do |f|
+          .row
+            .input-field.col.s12.formulaText
+              = f.text_field :name, :class => 'validate'
+              %label{"data-error" => "wrong", "data-success" => "right", :for => "Nombre"} Nombre
+          .input-field.row.formulaText
+            .col.s2
+              = f.text_field :country_code, :class => 'validate'
+            .col.s10
+              = f.text_field :mobile_no, :class => 'validate'
+              %label{"data-error" => "wrong", "data-success" => "right", :for => "Telefone"} Telefone
+          .row
+            .input-field.col.s12
+              = f.text_field :email, :class => 'validate', :type => 'email'
+              %label{"data-error" => "wrong", "data-success" => "right", :for => "email"} Email:*
+          .row
+            .input-field.col.s12
+              = f.text_area :message, :class => 'materialize-textarea validate'
+              %label{"data-error" => "wrong", "data-success" => "right", :for => "textarea1"} Mensaje
+          .row.lastLeftbtn
+            .input-field.col.s12.txtcenter
+              %button.btn.waves-effect.waves-light{:name => "action", :type => "submit"} ENVIAR
+
+- if notice == 'Thank you for contacting us.'
+  = render partial: "thank_you_popup" 
+
+
+:css
+  .othrnewsblogdiv{display:none}
+  .hide_othrnewsdiv{display:none}
+

@@ -1,0 +1,21 @@
+= stylesheet_link_tag 'bootstrap-datetimepicker'
+= javascript_include_tag 'bootstrap-datepicker'
+.formulaBlog.HISTORIAL.datePic
+  .historicaltab{:style => 'max-width:800px;'}
+    %h2 HISTORIAL
+    .row
+      .input-field.s12
+        = form_tag "/patients/#{current_user.id}/history", :style => 'max-width:none;', :method => :get do
+          .col-sm-5
+            .hero-unit
+              = text_field_tag :from_date, params[:from_date], :id => 'example1', :class => 'datetab', :placeholder => "From"
+          .col-sm-5
+            .hero-unit
+              = text_field_tag :to_date, params[:to_date], :id => 'example2', :class => 'datetab', :placeholder => "To"
+          .col-sm-2
+            .hero-unit
+              = submit_tag 'Filter', :class => 'datetab', :style => 'border:none;height:50px;width:100%;}'
+  .historicaltab{:style => 'max-width:800px;'}
+    = render :partial => 'history_tab', :locals => {:@history => @history} 
+= render :partial => '/home/blog_section', :locals => {:@blogpost => @blogpost}
+= render :partial => '/home/news_blog_section', :locals => {:@posts => @posts}

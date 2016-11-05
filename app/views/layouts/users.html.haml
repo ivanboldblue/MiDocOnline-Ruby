@@ -1,0 +1,159 @@
+- if not @head_disabled
+  !!!
+  %html{:lang => "en"}
+    %head
+      =# render :partial => "layouts/seo_keywords"
+      %title Midoconline
+      / Facebook Pixel Code
+      :javascript
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','//connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '1696696563909776');
+        fbq('track', "PageView");
+      %noscript
+        %img{:height => "1", :src => "https://www.facebook.com/tr?id=1696696563909776&ev=PageView&noscript=1", :style => "display:none", :width => "1"}/
+      / End Facebook Pixel Code
+      %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+      %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+      %meta{:content => "width=device-width, initial-scale=1, user-scalable=no", :name => "viewport"}/
+      - if params[:controller] == 'video_chats'
+        %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
+        %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/quickblox/2.0.3/quickblox.min.js"}
+      /[if IE] 
+        = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
+      /[if (gte IE 6) & (lte IE 8)]
+      /[if lte IE 9 ]
+      = stylesheet_link_tag 'bootstrap', 'animate', 'Material-style', 'style-material', "owl_carousel"#, media: 'all' #, 'data-turbolinks-track' => true
+      = javascript_include_tag 'application', 'jquery_1_11_0.min', 'wow', 'materialize', "owl_carousel" #, 'data-turbolinks-track' => true
+      = csrf_meta_tags
+      = favicon_link_tag 'favicon-1.ico'
+
+  %body
+    %section.wrapper
+      = render 'layouts/user_header'
+      = yield
+      = render 'layouts/user_footer'
+    :javascript
+      new WOW().init();
+- else
+  .mainWrapper
+    = render 'layouts/user_header'
+    = yield
+    = render 'layouts/user_footer'
+    :javascript
+      new WOW().init();  
+
+
+:javascript
+  /*popup open btn script start */
+  $('.popup-info,.popup-container').hide().addClass('owl-fade-out');
+  $('.popup-info,.popup-container').addClass('slideInDown');
+  $('.testpop').on( 'click', function() {
+    $('body').css('overflow','auto');
+    var displaystatus = $('body').find('.popup-container');
+    var displaytarget = displaystatus.css('display');
+    if(displaytarget == 'none'){
+      $('.popup-info,.popup-container').show().addClass('slideInDown');
+      $('.popup-overlay').show().addClass('owl-fade-in');
+      $('body').css('overflow-y','hidden');
+    }
+    else{
+      $('body').css('overflow','auto');
+    }
+    });
+    
+    /*popup close btn script start */
+
+    $('.popup-info').find('.popup-closebtn').on('click', function () {
+      $('body').css('overflow','auto');
+      $('.popup-info,.popup-container').fadeOut();
+      $('.popup-overlay').fadeOut(300);
+    });
+    /*popup close btn script end */
+    
+    /*popup close on body jquery start */
+    $('.popup-container').on('click', function () {
+      $('body').css('overflow','auto'); 
+      $(this).fadeOut(300);
+      $('.popup-overlay').fadeOut(300);
+      }).find('.popup-info').on('click', function (e) {
+        e.stopPropagation();
+      });
+    
+    /*popup close on body jquery start */
+    
+    
+    /*popup slider call script start */
+  $('.popup-info,.popup-container1').hide().addClass('owl-fade-out');
+  $('.popup-info,.popup-container1').addClass('slideInDown');
+  $('.popup-info,.popup-container4').show().addClass('owl-fade-out');
+  $('.popup-info,.popup-container4').addClass('slideInDown');
+  $('.testpop1').on( 'click', function() {
+    $('body').css('overflow','auto');
+    var displaystatus = $('body').find('.popup-container1');
+    var displaytarget = displaystatus.css('display');
+    if(displaytarget == 'none'){
+      $('.popup-info,.popup-container1').show().addClass('slideInDown');
+      $('.popup-overlay').show().addClass('owl-fade-in');
+      $('body').css('overflow-y','hidden');
+    }
+    else{
+      $('body').css('overflow','auto');
+    }
+    });
+    
+    /*popup close btn script start */
+
+    $('.popup-info').find('.popup-closebtn').on('click', function () {
+      $('body').css('overflow','auto');
+      $('.popup-info,.popup-container1').fadeOut();
+      $('.popup-overlay').fadeOut(300);
+    });
+    /*popup close btn script end */
+    
+    /*popup close on body jquery start */
+    $('.popup-container1').on('click', function () {
+      $('body').css('overflow','auto'); 
+      $(this).fadeOut(300);
+      $('.popup-overlay').fadeOut(300);
+      }).find('.popup-info').on('click', function (e) {
+        e.stopPropagation();
+      });
+      
+
+  $('.popup-info-account,.popup-container-account').hide().addClass('owl-fade-out');
+  $('.popup-info-account,.popup-container-account').addClass('slideInDown');
+  $('.testpop-account').on( 'click', function() {
+    $('body').css('overflow','auto');
+    var displaystatus = $('body').find('.popup-container-account');
+    var displaytarget = displaystatus.css('display');
+    if(displaytarget == 'none'){
+      $('.popup-info-account,.popup-container-account').show().addClass('slideInDown');
+      
+    }
+    else{
+      $('body').css('overflow','auto');
+    }
+    });
+    
+    /*popup close btn script start */
+
+    $('.popup-info-account').find('.popup-closebtn').on('click', function () {
+      $('body').css('overflow','auto');
+      $('.popup-info-account,.popup-container-account').fadeOut();
+      
+    });
+    /*popup close btn script end */
+    
+    /*popup close on body jquery start */
+    $('.popup-container-account').on('click', function () {
+      $('body').css('overflow','auto'); 
+      $(this).fadeOut(300);
+      }).find('.popup-info-account').on('click', function (e) {
+        e.stopPropagation();
+      });
+    

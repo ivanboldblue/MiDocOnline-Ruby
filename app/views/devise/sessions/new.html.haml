@@ -1,0 +1,63 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", :name => "viewport"}
+    %meta{:content => "Website Development, Ecommerce Website Development"}
+    %title LogIN
+:javascript
+  new WOW().init();
+%body
+  %section.wrapper
+    %header
+      .container.txtcenter
+        %a.aHeaderMenuLink.lines-button.x.wow.slideInDown.menuimg.Newmenu{:href => "javascript:void(0)"}
+          %span.lines
+        %a{:href => "javascript:void(0)"}
+          %img.imgLogo.wow.slideInDown{:src => "/assets/midoc-logo.png"}/
+    %section.contentArea
+      .container
+        %section.leftForm
+          %span.formTag CREAR CUENTA
+          .row
+            %form.col.s12.loginFrom
+              .row
+                .input-field.col.s12
+                  %input#email.validate{:type => "email"}
+                    %label{"data-error" => "wrong", "data-success" => "right", :for => "email"} Email:*
+              .row
+                .input-field.col.s12
+                  %input#Contras.validate{:type => "password"}
+                    %label{"data-error" => "wrong", "data-success" => "right", :for => "Contras"} Contrasena: *
+              .row
+                .input-field.col.s12
+                  %input#Confirmar.validate{:type => "password"}
+                    %label{"data-error" => "wrong", "data-success" => "right", :for => "Confirmar"} Confirmar contrasena *
+              .row.lastLeftbtn
+                .input-field.col.s12.txtcenter
+                  %button.btn.waves-effect.waves-light{:name => "action", :type => "submit"} registrarme
+        %section.RightForm
+          %span.formTag LOG IN
+          .row
+            %form.col.s12.loginFrom
+              .row
+                .input-field.col.s12.loginIN
+                  %input#Contras.validate{:type => "password"}
+                    %label{"data-error" => "wrong", "data-success" => "right", :for => "Contras"} Usuario
+              .row.logpass
+                .input-field.col.s12
+                  %input#password.validate{:type => "password"}
+                    %label{"data-error" => "wrong", "data-success" => "right", :for => "password"} contrasena *
+              %p
+                %input#test6{:type => "checkbox"}/
+                %label{:for => "test6"} Recordarme
+              .row.logpass
+                .input-field.col.s12.txtcenter.Accderbtn
+                  %button.btn.waves-effect.waves-light{:name => "action", :type => "submit"} ACCEDER
+              %p.txtcenter Olvide mi contrasena
+              .forminfo
+                %span ? No estas registrado aun?
+                %span
+                  %a{:href => ""} REGISTRATE
+    

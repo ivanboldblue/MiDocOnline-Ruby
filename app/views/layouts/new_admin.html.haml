@@ -1,0 +1,74 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %link{:href => "/assets/App_Logo_Pink.png", :rel => "apple-touch-icon"}
+    %link{:href => "/assets/App_Logo_Pink.png", :rel => "apple-touch-icon-precomposed"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}
+    %meta{:content => "", :name => "description"} 
+    %meta{:content => "Midoconline Site", :name => "author"}
+    %title Midoconline
+    = stylesheet_link_tag  "bootstrap", "app.v1", "ui-style","font_awesome", "font_awesome.min", "custom_style", "calendar.css"#, "mediaqueries", "pop_up_style", "beat_picker"
+              
+    = javascript_include_tag  "jquery-1.9.1.min.js", "angular.js", "application", "bootstrap.min.js", "custom.js", "table_section"#, "beat_picker.js", "new_image_pop_up.js", "search","cms-common.js"
+    %link{:href => "http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300", :rel => "stylesheet", :type => "text/css"}
+  %body
+    %aside.left-panel
+      .user.text-center
+        %img.img-circle{:alt => "App Icon", :src => "/assets/App_Logo_Pink.jpg"}
+          %h4.user-name Midoconline
+      %nav.navigation
+        %ul.list-unstyled
+          %li.active
+          %li{:class => params[:controller] == "admin/users" ? "active" : ""}
+            %a{:href => patients_path, :class => params[:controller] == "admin/users" ? "active" : ""}
+              %i.fa.fa-users
+              %span.nav-label Patients
+          %li{:class => params[:controller] == "doctors" ? "active" : ""}
+            %a{:href => doctors_path}
+              %i.fa.fa-image
+              %span.nav-label Doctors
+          %li{:class => params[:controller] == "news_posts" ? "active" : ""}
+            %a{:href => news_posts_path}
+              %i.fa.fa-certificate
+              %span.nav-label Posts
+          %li{:class => params[:controller] == "contacts" ? "active" : ""}
+            %a{:href => contacts_path}
+              %i.fa.fa-comment
+              %span.nav-label Contact Us
+          - if false
+            %li{:class => params[:controller] == "admin/suggestions" ? "active" : ""}
+              %a{:href => root_path}
+                %i.fa.fa-comment
+                %span.nav-label Suggestions
+            %li
+              %a{:href => root_path}
+                %i.fa.fa-book
+                %span.nav-label Reporting
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-user
+                %span.nav-label Admins
+    %section.content
+      %header.top-head.container-fluid
+        %button.navbar-toggle.pull-left.menu_btn{:type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %ul.nav-toolbar
+          %li 
+            =# "Logged in as: #{current_user.email}"
+          %li
+            %a{:href => destroy_user_session_path}
+              %i.fa.fa-power-off
+      = yield
+      %footer.container-fluid.footer
+        Copyright &copy; 2015
+        %a{:href => "#", :target => "_blank"} Midoconline
+        %a.pull-right.scrollToTop.btn.btn-info{:href => "#"}
+          %i.fa.fa-chevron-up
+          Top            
+                  
+

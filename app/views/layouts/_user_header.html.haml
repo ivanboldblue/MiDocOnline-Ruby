@@ -1,0 +1,113 @@
+%header
+  .container.txtcenter
+    %a.aHeaderMenuLink.lines-button.wow.slideInDown.menuimg.Newmenu.testpop-account{:href => "javascript:void(0)"}
+      %span.lines
+    - if false
+      .popup-container
+        .popup-info
+          %span.triangle-up
+          %span.popup-closebtn
+            %a{:href => "javascript:void(0);", :class => 'testpop-account'} X
+          .content-txt
+            / popup slider code start
+            .middleImg
+              .item
+                %a{:href => new_user_session_path}
+                  %img{:alt => "The Last of us", :src => "/assets/patient_img2.png"}
+                %a.waves-effect.waves-teal.black.testpop.popupbtn{:href => new_user_session_path} PATIENT      
+              .item
+                %a{:href => new_user_session_path}
+                  %img{:alt => "GTA V", :src => "/assets/doctor_img2.png"}
+                %a.waves-effect.waves-teal.black.testpop1.popupbtn{:href => new_user_session_path} DOCTOR  
+    - if current_user.present?
+      - if current_user.type == 'Doctor'
+        %a.index-logo{:href => history_doctor_path(:id => current_user.id)} 
+          %img.imgLogo.wow.slideInDown{:src => "/assets/midoc-logo.png"}/
+      - else
+        %a.index-logo{:href => landing_patients_path}
+          %img.imgLogo.wow.slideInDown{:src => "/assets/midoc-logo.png"}/
+    - else
+      %a.index-logo{:href => root_path}
+        %img.imgLogo.wow.slideInDown{:src => "/assets/midoc-logo.png"}/
+    %ul.right.headerbtn.wow.slideInDown
+      - if user_signed_in?
+        %li{:style => 'width:40px;'}
+          %img.img-circle{:alt => "App Icon", :src => current_user.image.present? ? current_user.image.url(:thumb) : '/assets/user_image.png'} 
+        %li{:style => 'width:120px;'}
+          = current_user.username
+        %li
+          %a.waves-effect.waves-teal.white.lastbtn{:href => destroy_user_session_path} Log Out
+      - else
+        %li
+          %a.waves-effect.waves-teal.white.testpop{:href => 'javascript:void(0);'} Log In
+        %li
+          %a.waves-effect.waves-teal.white.lastbtn.testpop1{:href => 'javascript:void(0);'} Sign Up
+
+.popup-overlay
+.popup-container
+  .popup-info
+    %span.triangle-up
+    %span.popup-closebtn
+      %a{:href => "javascript:void(0);"} X
+    .content-txt
+      / popup slider code start
+      .middleImg
+        .item
+          %a{:href => new_user_session_path}
+            %img{:alt => "The Last of us", :src => "/assets/patient_img2.png"}
+          %a.waves-effect.waves-teal.black.testpop.popupbtn{:href => new_user_session_path} PATIENT      
+        .item
+          %a{:href => new_user_session_path}
+            %img{:alt => "GTA V", :src => "/assets/doctor_img2.png"}
+          %a.waves-effect.waves-teal.black.testpop1.popupbtn{:href => new_user_session_path} DOCTOR
+      / popup slider code end
+/ popup code end
+.popup-overlay
+.popup-container1
+  .popup-info
+    %span.triangle-up
+    %span.popup-closebtn
+      %a{:href => "javascript:void(0);"} X
+    .content-txt
+      / popup slider code start
+      .middleImg
+        .item
+          %a{:href => new_user_registration_path(:type => 'Patient')}
+            %img{:alt => "The Last of us", :src => "/assets/patient_img2.png"}
+          %a.waves-effect.waves-teal.black.testpop.popupbtn{:href => new_user_registration_path(:type => 'Patient')} PATIENT
+        .item
+          %a{:href => new_user_registration_path(:type => 'Doctor')}
+            %img{:alt => "GTA V", :src => "/assets/doctor_img2.png"}
+          %a.waves-effect.waves-teal.black.testpop.popupbtn{:href => new_user_registration_path(:type => 'Doctor')} DOCTOR
+      / popup slider code end
+/ popup code end
+
+- if current_user.present?
+  .popup-container-account
+    .popup-info-account
+      %span.triangle-up-account
+      %span.popup-closebtn
+        %a{:href => "javascript:void(0);"} X
+      .content-txtacount
+        / popup slider code start
+        .middleImgacount
+          .item
+            - if current_user.present? and current_user.type == 'Patient'
+              - if params[:controller] == 'patients' and params[:action] == 'profile'
+                %a.waves-effect.waves-teal.black.popupbtn{:href => landing_patients_path, :style => 'padding:5px 25px;width:133px;'} Video Call
+              - else
+                %a.waves-effect.waves-teal.black.popupbtn{:href => profile_patient_path(:id => current_user.id)} Account      
+              - if params[:controller] == 'patients' and params[:action] == 'history'
+                %a.waves-effect.waves-teal.black.popupbtn{:href => landing_patients_path, :style => 'padding:5px 25px;width:133px;'} Video Call
+              - else
+                %a.waves-effect.waves-teal.black.popupbtn{:href => history_patient_path(:id => current_user.id), :style => 'padding:5px 39px;'} History
+            - elsif current_user.present? and current_user.type == 'Doctor'
+              - if params[:controller] == 'doctors' and params[:action] == 'profile'
+                %a.waves-effect.waves-teal.black.popupbtn{:href => video_chats_path, :style => 'padding:5px 25px;width:133px;'} Video Call
+              - else
+                %a.waves-effect.waves-teal.black.popupbtn{:href => profile_doctor_path(:id => current_user.id)} Account      
+              - if params[:controller] == 'doctors' and params[:action] == 'history'
+                %a.waves-effect.waves-teal.black.popupbtn{:href => video_chats_path, :style => 'padding:5px 25px;width:133px;'} Video Call
+              - else
+                %a.waves-effect.waves-teal.black.popupbtn{:href => history_doctor_path(:id => current_user.id), :style => 'padding:5px 39px;'} History
+        / popup slider code end

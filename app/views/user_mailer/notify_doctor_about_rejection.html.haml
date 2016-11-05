@@ -1,0 +1,55 @@
+=# render :partial => 'user_mailer/mail_header'
+%body
+  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border:solid 15px #4d2a90;padding:40px 60px; color:#737373;font-weight:300;font-size:14px;font-family: 'Roboto', sans-serif;line-height:25px;", :width => "600"}
+    =# render :partial => 'user_mailer/new_header'
+    %tr
+      %td{:style => "color:#492e87;font-weight:300;font-size:41px;font-family: 'Roboto', sans-serif;line-height:43px;"} 
+        =# Its okay to forget your password
+    %tr
+      %td{:height => "20"}
+    %tr
+      %td
+        = "Hello #{@doctor.username},"
+        %br
+          Thank you for signing up with Midoconline as Doctor! Your account has been rejected by admin. Please Contact Admin.
+    %tr
+      %td{:height => "20"}
+    %tr
+      %td{:height => "20"}
+    %tr
+      %td
+        Thanks,
+        %br
+          %span{:style => "color:#492e87;"} Midoconline Team
+          %br
+            %a{:href => "http://midoconline.com/", :style => "text-decoration:none;color:#492e87;", :target => "_blank"} Midoconline.com
+    =# render :partial => 'user_mailer/mail_footer'        
+    
+
+
+- if false
+  %html{:xmlns => "http://www.w3.org/1999/xhtml"}
+    %head
+      %meta{:charset => "utf-8"}
+        %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+          %title Midoconline
+    %body
+      %table{:align => "center", :cellpadding => "0", :cellspacing => "0", :style => "color:#231f20;font-family:Arial,Helvetica,sans-serif;background:#fff;padding:15px;font-size: 14px;", :width => "600"}
+        %tr
+          = render 'mail_header'
+        %tr
+          %td{:colspan => "2", :style => "padding:15px;box-shadow:0px 5px 6px -1px rgba(0, 0, 0, 0.08)"}
+            %p{:style => "font-weight:bold;"}
+              Welcome to Midoconline!
+        %tr
+          %td{:colspan => "2", :style => "padding:15px;box-shadow:0px 5px 6px -1px rgba(0, 0, 0, 0.08)"}
+            %p{:style => "font-weight:bold;"} Hello #{@doctor.full_name}!,
+            %p
+              Thank you for signing up with Midoconline as Doctor! Your account has been activated by admin.
+            
+            - if false
+              %p
+                Please go to the following link to view the Details.
+                = link_to "View Detail", doctor_details_admin_url(@doctor), :target => '_blank'
+            = render 'mail_footer'
+

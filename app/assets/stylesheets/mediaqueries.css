@@ -1,0 +1,222 @@
+@media screen and (min-width: 0px) and (max-width: 480px){
+
+.divActionButtons{margin-left:30px;}
+
+.nav-toolbar{
+padding:0px;
+font-size:13px;
+}
+.navbar-toggle {
+margin-right: 5px;
+}
+.ulCharacterList {
+padding-right: 1px;
+text-align: right;
+}
+.content_txt{
+padding-left: 0;
+padding-right: 0;
+width: 94%;
+}
+.content_txt.reportedPostPage{
+width: 100%;
+}
+.content_txt.reportedPostPage h2{font-size: 134%;}
+.content_txt.reportedPostPage h4{font-size: 110%;}
+.content_txt.reportedPostPage .selctStatusbtn{width:38%; padding: 8px 0;}
+
+.pager_list{
+padding-left: 0px;
+padding-right: 0px;
+position: inherit;
+}
+.warper {
+	width:100%;
+	padding-top: 5px;
+	}
+.manage_txt{
+padding-left: 0;
+padding-right: 0;
+width: 100%;	
+}
+.manage_content {
+    padding-left: 6px;
+    padding-right: 0;
+    width: 100%;
+}
+.page-header h1{
+width:80% !important;
+}
+
+	.panel-body {
+ padding: 2px;
+
+}
+.content > .container-fluid{
+	padding-left:8px;
+	padding-right:8px;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+padding:7px;
+font-size: 13px;
+}
+.ulCharacterList li a{
+	font-size:13px;
+}
+.ulCharacterList li{
+	width:4%;
+	display:inline-block;
+}
+/*manege chalenge */
+.nav > li > a {
+display: inline-block;
+margin-right:0px;
+}
+.frst_line td:first-child{
+border-top:none;
+}
+.content_search{
+    height: 33px;
+    width: 250px !important;
+		margin-bottom: 10px;
+		margin-left:0px !important;
+		}
+.page-header .input-container .beatpicker-inputnode {
+		margin-left: 0px;
+		 width: 10%;
+		}
+		
+.park_btn{margin-top: 5px;width: 98%;}	
+.edit_chal_btn{width: 45%;float:left;margin-left: 5px}
+.save_chal_btn{width: 49%;float:right;}	
+}
+@media screen and (max-width: 800px){
+.dlt_pic .btn{
+width:97%;
+}
+.dlt_pic{
+padding-left: 5px;
+padding-right: 2px;
+}
+.save_change{
+clear:both;
+padding-top:10px;
+padding-left: 1.7%;
+padding-right: 2.3%;
+}
+.block_change{
+clear:both;
+padding-top:10px;
+padding-left:5px;
+padding-right:5px;
+width:100%;
+}
+.block_change .btn{
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    width: 46%;
+}
+.eDitPictur	{
+ display: inline-block;
+    margin: 5px 0 0 5px;
+    padding: 0;
+    width: 33%;
+ }
+ 
+.eDitDatte{
+  display: inline-block;
+  vertical-align: middle;
+  width: 60%;
+}
+.eDitPictur input[type="checkbox"]{
+  margin-right:5px;
+}
+.content_txt.reportedPostPage h2{font-size: 134%;}
+.content_txt.reportedPostPage h4{font-size: 110%;}
+.content_txt.reportedPostPage .selctStatusbtn{width:38%; padding: 8px 0;}
+
+.page-header h1{
+	font-size: 22px;
+	margin-bottom: 10px;
+	width:50%;
+	}
+
+}
+@media screen and (min-width: 801px) and (max-width: 899px){
+.save_change{
+clear:both;
+padding-top:10px;
+}
+.block_change .btn{
+width: 46%;
+margin-right:2%;
+}
+.dlt_pic{
+padding-left: 5px;
+padding-right: 15px;
+}
+.block_change .last_btn{
+margin-right:0px;
+}
+.content_txt.reportedPostPage h2{font-size: 134%;}
+.content_txt.reportedPostPage h4{font-size: 110%;}
+.content_txt.reportedPostPage .selctStatusbtn{width:38%; padding: 8px 0;}
+
+}
+@media screen and (min-width: 900px){
+.save_change{
+clear:both;
+padding-top:10px;
+}
+.block_change .btn{
+width: 46.5%;
+margin-right:2.4%;
+}
+.block_change .last_btn{
+margin-right:0px;
+}
+.dlt_pic{
+padding-left: 5px;
+padding-right: 15px;
+}
+.block_change .last_btn{
+margin-right:0px;
+}
+}
+@media screen and (min-width: 900px) and (max-width: 990px){
+.block_change .btn{
+width: 46.5%;
+margin-right:2%;
+}
+.block_change .last_btn{
+margin-right:0px;
+}
+.content_txt.reportedPostPage h2{font-size: 134%;}
+.content_txt.reportedPostPage h4{font-size: 110%;}
+.content_txt.reportedPostPage .selctStatusbtn{width:38%; padding: 8px 0;}
+
+}
+@media screen and (min-width: 801px){
+.show-grid{
+width:100%;
+}
+.eDitPictur	{
+ display: inline-block;
+    margin: 5px 0 0 5px;
+    padding: 0;
+    width: 30%;
+ }
+ 
+.eDitDatte{
+  display: inline-block;
+  vertical-align: middle;
+  width: 65%;
+}
+.eDitPictur input[type="checkbox"]{
+  margin-right:5px;
+}
+}
+
+
+

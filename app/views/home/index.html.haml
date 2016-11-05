@@ -1,0 +1,158 @@
+%section.HomeBlog
+  .container
+    %img.wow.fadeInUp{:alt => "", "data-wow-delay" => "0.2s", :src => "/assets/home-logo-img.png", :title => ""}
+%section.contentArea.txtcenter.formulaBlog
+  .container
+    %h1.index-heading.wow.fadeInUp{"data-wow-delay" => "0.1s"} ¿COMO FUNCIONA?
+    %span.txtcenter.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+      %img{:alt => "", :src => "/assets/contact-info-img.png", :title => ""}/
+    .ContentBlog
+      .ContentInfo.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+        %div
+          %img{:alt => "", :src => "/assets/registrate-icon.png", :title => ""}/
+        %span REGÍSTRATE
+        %p Es muy importante que la información que otorgas sea veraz, de otra manera no será posible darte la mejor orientación.
+        %p Requerimos de tu localización para que el médico tratante pueda asesorarte con respecto a las farmacias y hospitales más cercanos a tu ubicación en el momento de la consulta.
+      .Separateline
+      .ContentInfo.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+        %div
+          %img{:alt => "", :src => "/assets/realize-icon.png", :title => ""}/
+        %span Realiza la marcación
+        %p Si sabes el tipo de especialista que debe de tratarte, selecciona la especialidad y da click en llamada. En caso de que no sepas el tipo de especialista que debe de orientarte, da click en urgencia y un urgenciólogo responderá a tu llamada. Él podrá determinar el grado de emergencia y orientarte o bien canalizar tu llamada con un especialista.
+        %p Siempre habrá alguien disponible para ayudarte a resolver tu problema de salud.
+      .Separateline
+      .ContentInfo.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+        %div
+          %img{:alt => "", :src => "/assets/major-icon.png", :title => ""}/
+        %span Siéntete mejor
+        %p Dependiendo de tus condiciones, el médico podrá recetarte algún medicamento para que te sientas bien.
+    .RightBtn
+      %a.waves-effect.waves-teal{:href => "/contacts/new"} CONTACTANOS
+%section.HomeBanner.clearfix
+  %ul#homeBanner.owl-carousel
+    %li
+      %img{:alt => "", :src => "/assets/slide-01.jpg"}/
+    %li
+      %img{:alt => "", :src => "/assets/slide-01.jpg"}/
+    %li
+      %img{:alt => "", :src => "/assets/slide-01.jpg"}/
+    %li
+      %img{:alt => "", :src => "/assets/slide-01.jpg"}/
+    %li
+      %img{:alt => "", :src => "/assets/slide-01.jpg"}
+%section.HomeTxt
+  .LeftBlog.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+    %div
+      %h3 NOSOTROS
+      %p Midoconline surge de la necesidad que tenemos todos los seres humanos de cuidar y mejorar nuestra salud.
+      %p Los tiempos para atenderte siempre serán inportantes, ya sea desde sentirte bien o hasta una situación de extrema urgencia.
+      %p
+        Una buena orientación médica es muy importante para curarte en el menor tiempo posible.
+    .technology
+      %h3 tecnología
+      %p Midoconline cuenta con la más avanzada tecnología en telecomunicaciones.
+      %p Un médico siempre estará disponible para orientarte.
+      %p El médico cuenta con tu ubicación y las ubicaciones de farmacias y hospitales más cerca de ti al momento de la consulta, además de otras herramientas para darte la mejor orientación.
+      %p
+        Los médicos saben trabajar en equipo y pueden redireccionar tu llamada con otro especialista que se ajuste mejor a tus necesidades del momento.
+  .RightBlog.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+    %img{:src => "/assets/right-Hometxt.jpg"}/
+%section.ConsultarBlog
+  .LeftConsult.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+    %img{:src => "/assets/consultar-left-img.jpg"}
+  .RightConsult.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+    %h4 BENEFICIOS de consultar ONLINE
+    %ul
+      %li Ahorra tiempo al no tener que ir al consultorio del doctor mediante una consulta online.
+      %li Evita un gasto excesivo en salas de urgencias, consulta con un experto antes de internarte.
+      %li
+        El gasto en estudios o análisis clínicos puede resultar muy elevado y en muchas
+        ocasiones una enfermedad se puede curar sin la necesidad de tantos análisis.
+      %li Siéntete mejor mucho más rápido. Obtén una orientación médica online y curate antes.
+      %li
+        Bajo ciertas circunstancias resulta muy complicado llevar a un ser querido al
+        consultorio del médico. Una consulta online puede ser mucho más cómodo para
+        los pacientes.
+      %li
+        Durante un viaje puedes sentirte mal. Encontrar a un medico en el momento y
+        que además hable tu mismo idioma no es sencillo. En midoconline obtienes
+        orientación las 24 horas del día los 365 días del año.
+      %li
+        Los médicos de midoconline tienen un gran curriculum, todos tienen
+        especialidad médica, están certificados y tienen mucha experiencia.
+        Su nivel de diagnóstico es muy elevado y cuentan con herramientas
+        online para darte la mejor orientación.
+    .registrarmebtn
+      %a.btn.waves-effect.waves-light{:name => "action", :href => new_user_registration_path} registrarme
+%section.Nuestrapp
+  %h2.txtcenter nuestra APP
+  %ul.homeListTab.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+    %li Consultas  móviles
+    %li
+      Es muy cómodo tener la app en tu teléfono para resolver cualquier orientación
+      médica o cualquier emergencia.
+    %li Antes de viajar, descarga la app. Así llevarás a tu médico a cualquier parte del mundo.
+    %li
+      %img{:alt => "", :src => "/assets/app_store_logo_image.png", :title => ""}/
+    %li
+      %img{:alt => "", :src => "/assets/appstore_button_new_google.png", :title => ""}/
+  .RightPhone.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+    %img{:alt => "", :src => "/assets/app-mobil-img.png", :title => ""}
+      %a.contactBtn{:href => "/contacts/new"} CONTACTANOS
+= render :partial => '/home/blog_section', :locals => {:@blogpost => @blogpost}
+= render :partial => '/home/news_blog_section', :locals => {:@posts => @posts}
+
+
+:css
+  .othrnewsblogdiv{display:none}
+  .hide_othrnewsdiv{display:none}
+:javascript
+  $(document).ready(function() {
+    $("#homeBanner").owlCarousel({ 
+      items : 1,
+      autoplay:true,
+      loop:true,
+      dots:false,
+      paginationSpeed: 1000,
+      animateIn: 'fadeIn',
+      animateOut: 'fadeOut',
+    })
+
+    //$('.newsbloghead').click(function(){
+    //  var a = $(this).attr('for');
+    //  $('.newsblogdiv').hide();
+    //  $('.'+a).show();
+    //  $('.'+a).removeClass('othrnewsblogdiv');
+    //});
+
+    //$('.NextBtn').click(function(){
+    //  var a = $(this).attr('for');
+    //  var a1 = $(this).attr('data-for');
+    //  $('.'+a1).hide();
+    //  $('.'+a1).find('.newsblogdiv').hide();
+    //  $('.'+a).show();
+    //  $('.'+a).find('.newsblogdiv').first().show();
+    //});
+
+    //$('.PreBtn').click(function(){
+    //  var a = $(this).attr('for');
+    //  var a1 = $(this).attr('data-for');
+    //  $('.'+a1).hide();
+    //  $('.'+a1).find('.newsblogdiv').hide();
+    //  $('.'+a).show();
+    //  $('.'+a).find('.newsblogdiv').first().show();
+    //});
+      //$('.newsblogdiv_for_next_prev').show();
+
+    // $('.NextBtn').click(function(){
+    //   var arr = $('.NewsList').find('.newsblogdiv');
+    //   var a = arr.not(".othrnewsblogdiv").next('.newsblogdiv');
+    //   var d = a.attr('class').split(' ').pop();
+    //   console.log(d);
+
+    //   $('.'+d).show(500);
+    // });
+   
+  });
+  fbq('track', 'ViewContent');
+  fbq('track', 'HomePage');

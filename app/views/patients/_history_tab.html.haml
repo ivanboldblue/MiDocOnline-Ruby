@@ -1,0 +1,22 @@
+.row
+  - sum = 0
+  - @history.each_with_index do |h, index|
+    - index += 1
+    - sum += h.amount
+    .col.s12.m6
+      .card-action.newcard{:style => 'margin-bottom:10px;'}
+        .frstcard{:style => 'padding: 0;'}
+          %span
+            = h.created_at.strftime('%d/%m/%y')
+          %span CHARGE
+          %span
+            = h.doctor_full_name.capitalize rescue ''
+          %span
+            = "$ #{h.amount.to_i}"
+        %span.ortopidia
+          %em
+            = h.doctor_speciality.capitalize rescue ''
+          %a.waves-effect.waves-teal.black{:href => "/chat_history/#{h.id}"} Chat History
+          %a.waves-effect.waves-teal.black{:href => "/charges/new?caller_id=#{h.doctor_id}&specialize=#{h.doctor_speciality}"} Call
+%p.TotalTxt
+  = "Total :$ #{sum.to_i}"

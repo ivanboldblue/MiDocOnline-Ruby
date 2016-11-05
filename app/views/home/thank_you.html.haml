@@ -1,0 +1,29 @@
+%section.contentArea.dentroArea.txtcenter.formulaBlog{:style => 'padding:100px 0 125px;'}
+  %section.formulaFormInfo.dentroblog.txtcenter
+    = form_tag new_charge_path, :id => 'speciality_form', :class => 'col s12', :method => 'get' do |f|
+      .row
+        -#%p Thank You For Signing Up with midocoline.com you have to contact admin to activate your acount.
+  .popup-overlay
+  .popup-container4
+    .popup-info4
+      %span.popup-closebtn
+        %a{:href => root_path} X
+      .content-txt
+        / popup slider code start
+        .middleImg
+          %p Thank You For Signing Up with midocoline.com you have to contact admin to activate your acount.
+
+:css
+  .othrnewsblogdiv{display:none}
+  .hide_othrnewsdiv{display:none}
+
+
+
+:javascript
+  fbq('track', 'CompleteRegistration');
+
+
+:javascript
+  $('.popup-info,.popup-container').addClass('slideInDownss');
+  $('.slideInDownss').show();
+

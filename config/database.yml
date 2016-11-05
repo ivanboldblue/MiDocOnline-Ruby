@@ -1,0 +1,33 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: dbdoconline_development
+  pool: 5
+  username: root
+  password: password
+  socket: /var/run/mysqld/mysqld.sock
+
+staging:
+ adapter: mysql2
+ host: 52.74.206.181
+ reconnect: false
+ database: dbdoconline_staging #dbshobiz_staging
+ username: statingusr
+ password: statingpwd
+
+#staging:
+#  adapter: mysql2
+#  encoding: utf8
+#  database: dbdoconline_staging
+#  pool: 5
+#  username: root 
+#  password: password 
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: dbdoconline_production
+  pool: 5
+  username: usr_conline_production
+  password: pwd_midocoline_production
+  socket: /var/run/mysqld/mysqld.sock

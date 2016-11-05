@@ -1,0 +1,46 @@
+%section.NewsBlog
+  - pages = (@posts.count/5) + 1
+  - pages.times do |page|
+    - page = page + 1
+    .NewsInfo{:class => page > 1 ? "NewsInfo#{page} hide_othrnewsdiv" : "NewsInfo#{page} othrnewsdiv"}
+      %h2 News
+      %span.NewsBtn
+        - if page > 1
+          %a.PreBtn{:href => "javascript:void(0);", :class => (page != 1) ? "prevpage" : '', :for => "NewsInfo#{page - 1}", 'data-for' => "NewsInfo#{page}"} PREV
+        - if page < pages
+          %a.NextBtn{:href => "javascript:void(0);", :class => (page > 1) ? "nextpage" : '', :for => "NewsInfo#{page + 1}", 'data-for' => "NewsInfo#{page}"} NEXT
+      .NewsList
+        .LeftTab.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+          %ul
+            - @posts.paginate(:page => page, :per_page => 5).each_with_index do |np, index|
+              %li.newsblog{:class => "newsbloghead", :for => "newsblogdiv#{np.id}"}
+                %span
+                  = index + 1
+                = np.title
+              
+        - @posts.paginate(:page => page, :per_page => 5).each_with_index do |np, index|
+          .RightTab.newsblogdiv{:class => ((index != 0) ? "newsblogdiv othrnewsblogdiv newsblogdiv#{np.id}" : "newsblogdiv#{np.id}")}
+            .FirstBlog.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+              %h3
+                = np.title
+              .NewsTxt
+                .LeftImg
+                  %img{:src => np.image.url(:small)}
+                .RightTxt
+                  %p
+                    = np.description
+
+:css
+  .othrnewsblogdiv{display:none}
+  .hide_othrnewsdiv{display:none}
+:javascript
+  $(document).ready(function() {
+    $("#homeBanner").owlCarousel({ 
+      items : 1,
+      autoplay:true,
+      loop:true,
+      dots:false,
+      paginationSpeed: 1000,
+      animateIn: 'fadeIn',
+      animateOut: 'fadeOut',
+    })

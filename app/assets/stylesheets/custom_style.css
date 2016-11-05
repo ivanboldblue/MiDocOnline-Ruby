@@ -1,0 +1,216 @@
+/*CUSTOM STYLE CSS*/
+
+/*.btn-green{background-color: #0aa699;border-color: #088076;}
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active,
+.btn-green.active,
+.open .dropdown-toggle.btn-purple{background-color: #088076}*/
+.show-grid {margin-bottom: 15px;}
+.clear, .clearfix{clear:both;}
+
+.btn-green {
+  color: white;
+  background-color: #0aa699;
+  border-color: #0aa699;
+}
+.btn-green:hover, .btn-green:focus, .btn-green:active, .btn-green.active {
+  color: white;
+  background-color: #088076;
+  border-color: #088076;
+}
+.open .btn-green.dropdown-toggle {
+  color: white;
+  background-color: #088076;
+  border-color: #088076;
+}
+.btn-green:active, .btn-green.active {
+  background-image: none;
+}
+.open .btn-green.dropdown-toggle {
+  background-image: none;
+}
+.btn-green.disabled, .btn-green.disabled:hover, .btn-green.disabled:focus, .btn-green.disabled:active, .btn-green.disabled.active, .btn-green[disabled], .btn-green[disabled]:hover, .btn-green[disabled]:focus, .btn-green[disabled]:active, .btn-green[disabled].active, fieldset[disabled] .btn-green, fieldset[disabled] .btn-green:hover, fieldset[disabled] .btn-green:focus, fieldset[disabled] .btn-green:active, fieldset[disabled] .btn-green.active {
+  background-color: #0aa699;
+  border-color: #0aa699;
+}
+.btn-green.btn-transparent {
+  color: #AAA;
+  border-color: #0aa699;
+}
+.btn-green.btn-transparent:hover, .btn-green.btn-transparent:focus, .btn-green.btn-transparent:active, .btn-green.btn-transparent.active {
+  background-color: #0aa699;
+  color: white;
+}
+.btn-green .badge {
+  color: #0aa699;
+  background-color: white;
+}
+
+.btn-inverse {
+  color: white;
+  background-color: #62707d;
+  border-color: #62707d;
+}
+.btn-inverse:hover, .btn-inverse:focus, .btn-inverse:active, .btn-inverse.active {
+  color: white;
+  background-color: #505c66;
+  border-color: #505c66;
+}
+.open .btn-inverse.dropdown-toggle {
+  color: white;
+  background-color: #505c66;
+  border-color: #505c66;
+}
+.btn-inverse:active, .btn-inverse.active {
+  background-image: none;
+}
+.open .btn-inverse.dropdown-toggle {
+  background-image: none;
+}
+.btn-inverse.disabled, .btn-inverse.disabled:hover, .btn-inverse.disabled:focus, .btn-inverse.disabled:active, .btn-inverse.disabled.active, .btn-inverse[disabled], .btn-inverse[disabled]:hover, .btn-inverse[disabled]:focus, .btn-inverse[disabled]:active, .btn-inverse[disabled].active, fieldset[disabled] .btn-inverse, fieldset[disabled] .btn-inverse:hover, fieldset[disabled] .btn-inverse:focus, fieldset[disabled] .btn-inverse:active, fieldset[disabled] .btn-inverse.active {
+  background-color: #62707d;
+  border-color: #62707d;
+}
+.btn-inverse.btn-transparent {
+  color: #AAA;
+  border-color: #62707d;
+}
+.btn-inverse.btn-transparent:hover, .btn-inverse.btn-transparent:focus, .btn-inverse.btn-transparent:active, .btn-inverse.btn-transparent.active {
+  background-color: #62707d;
+  color: white;
+}
+.btn-inverse .badge {
+  color: #62707d;
+  background-color: white;
+}
+
+
+.form-control{height: 40px;}
+/*amit STYLE CSS*/
+.page-header .content_search{
+margin-bottom: 10px;
+margin-left: 15px;
+height: 33px;
+width: 250px !important; 
+}
+
+.SignForm .input-group-addon{border-radius: 0px; color:#0aa699;background-color:#FFF;}
+.SignForm .input-group .form-control{box-shadow: 0px 0px;border-radius: 0px;}
+.btn{padding: 8px 12px;border-radius: 0px;font-size: 16px;}
+
+
+.username_tableWraper{max-height: 520px;overflow-y: auto;}
+.username_table{}
+.UsernameLetterHeading h3{margin:0px;font-weight: 400;color:#6CC3A0}
+.action_icons a{padding:5px 8px;border:1px solid #d3d3db;font-size: 18px;margin-right:5px;color:#d3d3db;border-radius:2px;font-size:12px;}
+.action_icons a:hover{border-color: #6CC3A0;color:#6CC3A0;}
+.ulCharacterList{list-style:none;text-align:left;padding-left: 0px;}
+.ulCharacterList li a{color:#8e8e8e;font-weight:600;-webkit-transition: all 0.5s;transition: all 0.5s;}
+.ulCharacterList li a:hover{color:#6CC3A0;}
+
+
+.edit_user_table{}
+.edit_user_table input{width: 100%;font-size: 14px;font-weight: 500;padding: 0px 10px;border: 0px;border-bottom: 1px solid transparent;}
+.edit_user_table input:focus{border-bottom: 1px solid #6CC3A0;outline:0 none;}
+.uploadInputType{visibility:hidden;opacity:0;height: 5px;}
+.user_image_show_button, .slectImageCheck{display:none;float: left;}
+
+.aAddChallenge{margin:10px 0;font-size: 14px;}
+
+.eDitPictur input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Login Page Css */
+
+.frgot_pass{
+	display:none;
+}
+.login_Form {
+	width:51%;
+}
+/* new  Css */
+.date_head .input-container .beatpicker-inputnode{
+    background: url("/assets/calendar-disabled.png") no-repeat scroll right 5px center rgba(0, 0, 0, 0) !important;
+    border: medium none;
+    cursor: pointer;
+    float: right;
+    height: 18px;
+    margin-top: 6px;
+    width: 10%;
+    color: transparent;
+    display:inline-block;
+}
+.date_head .input-parent.input-container{
+    display: inline !important;
+    
+}
+.page-header .input-container .beatpicker-inputnode {
+    background: url("/assets/calendar-disabled.png") no-repeat scroll right 5px center rgba(0, 0, 0, 0) !important;
+    border: medium none;
+    cursor: pointer;
+    display:inline-block;
+    height: 18px;
+    margin-top: 6px;
+    width: 5%;
+    color: transparent;
+    display:inline-block;
+}
+.page-header .input-parent.input-container{
+    display: inline !important;
+}
+.date_head h3{
+	float:left;
+}
+.hide_txt{
+	display:none;
+}
+.popup_close{
+	border-bottom:none;
+}
+.dname, .obj_id, .date{display:none;}
+
+
+/* styky calender */
+
+.ts-row-fixed {
+	position: fixed;
+	/* top: 0; */
+	visibility: hidden;
+	z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+	border-bottom: 1px solid #dddddd;
+	background-color: #ffffff;
+}
+
+.field_with_errors{position:relative;color: #FF0000;}
+.field_with_errors .message{position:relative; bottom:5px;margin-top:5px;width:100%;display:block; font-weight: bolder;}
+.nameerror, .dispnameerror, .dateerror{position:relative;color: #FF0000; font-weight: bolder;}
+.nameerror, .dispnameerror, .dateerror{position:relative; bottom:5px;margin-top:5px;width:100%;display:block; font-weight: bolder;}
+
+.disblebtn{float: right;margin-right: 5px;}
+.del_challenge{float: right;margin-right: 5px;padding: 4px 16px;}
+.park_btn{margin-top: 5px;width: 98%;}	
+.edit_chal_btn{width: 45%;float:left;margin-left: 5px}
+.save_chal_btn{width: 45%;float:right;}
+
+/*REPORTED IMAGE PAGE CSS*/
+.reportImageBlock{margin-left: 30px !important;}
+.reportedImageCheckbox{left: -30px;position: absolute;margin-top:15px !important;}
+
+.divActionButtons{position: absolute;left: 0px;top: 0px;width: 100px;}
+
+
+.user_image_filter_button{/*position:relative;*/margin-bottom:30px;}
+.editDropdown{display:inline-block}
+
+.user_image_filter_button:hover .divFilterBlock, .editDropdown:hover .divEditBlock{display:block;}
+.divFilterBlock, .divEditBlock{display:none;text-align:left;background:#31b0d5;padding:6px 10px;position:absolute;top:40px;left:-1px;z-index:99999;}
+.divFilterBlock h2{font-size:16px;font-weight:bold}
+.divFilterBlock ul{list-style:none;text-align:left;padding-left:0px;}
+.applyFilterButton{font-size:16px}
+
+.parking_filter_button{width:48%;font-size:13px;padding: 5px 10px;}
+
+
+.manage_txt .nav > li > a{padding: 10px 5px;}

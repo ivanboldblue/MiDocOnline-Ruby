@@ -1,0 +1,45 @@
+- if @chats.present?
+  %section.NewsBlog
+    .NewsInfo{:class => ""}
+      %h2 Chat History
+      .NewsList
+        - @chats.each_with_index do |chat, index|
+          .RightTab.newsblogdiv{:style => 'width:100%;float:center'}
+            .FirstBlog.wow.fadeInUp{"data-wow-delay" => "0.1s"}
+              %h3
+                - if chat.user_id == current_user.id
+                  = 'You'
+                - else
+                  = chat.user.username rescue nil
+              .NewsTxt
+                .RightTxt
+                  %p
+                    = chat.message
+
+
+%section.contentArea_contactform.txtcenter.formulaBlog{:style => 'background:#0085e8 none repeat scroll 0 0'}
+  .container
+    %section.formulaFormInfo.txtcenter{:style => "max-width:100%"}
+      .row
+        - @chat = Chat.new
+        = form_for(@chat, :class => "new_chat", :style => 'max-width:100%;') do |f|
+          .input-field.row.formulaText
+            .col.s2
+              = f.hidden_field :patient_id, :value => @history.patient_id
+              = f.hidden_field :history_id, :value => @history.id
+              = f.hidden_field :doctor_id, :value => @history.doctor_id
+          .row
+            .input-field.col.s12
+              = f.text_area :message, :class => 'materialize-textarea validate'
+              %label{"data-error" => "wrong", "data-success" => "right", :for => "textarea1"} Mensaje
+          .row.lastLeftbtn
+            .input-field.col.s12.txtcenter
+              %button.btn.waves-effect.waves-light{:name => "action", :type => "submit", :style => 'width:200px;'} Send
+
+
+:javascript
+  $(window).load(function () {
+    $('html, body').animate({
+        scrollTop: $(document).height() - 1200
+    }, 'slow');
+  });

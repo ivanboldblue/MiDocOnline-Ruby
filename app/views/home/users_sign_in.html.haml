@@ -1,0 +1,47 @@
+%section.contentArea.newpadingspace
+  .container.newlayoutform
+    / %section.leftForm
+    /   %span.formTag CREAR CUENTA
+    /   .row
+    /     = form_for(User.new, :id => 'new_user', :class => 'new_user col s12 loginFrom', url: registration_path(User.new), :remote => true) do |f|
+    /       .row
+    /         .input-field.col.s12
+    /           = f.email_field :email, autofocus: true, :class => 'validate'
+    /           %label{"data-error" => "wrong", "data-success" => "right", :for => "email"} Email:*
+    /       .row
+    /         .input-field.col.s12
+    /           = f.password_field :password, autocomplete: "off", :class => 'validate'
+    /           %label{"data-error" => "wrong", "data-success" => "right", :for => "Contras"} Contrasena: *
+    /       .row
+    /         .input-field.col.s12
+    /           = f.password_field :password_confirmation, autocomplete: "off", :class => 'validate'
+    /           %label{"data-error" => "wrong", "data-success" => "right", :for => "Confirmar"} Confirmar contrasena *
+    /       .row.lastLeftbtn
+    /         .input-field.col.s12.txtcenter
+    /           %button.btn.waves-effect.waves-light{:name => "action", :type => "submit"} registrarme
+    %section.RightForm
+      %span.formTag LOG IN
+      .row
+        - resource = @resource if @resource.present?
+        = form_for(resource, :id => 'new_user', :class => 'new_user col s12 loginFrom', url: session_path(resource)) do |f|
+          .row
+            .input-field.col.s12.loginIN
+              = f.email_field :email, :class => 'validate'
+              %label{"data-error" => "wrong", "data-success" => "right", :for => "Contras"} Usuario
+          .row.logpass
+            .input-field.col.s12
+              = f.password_field :password, :class => 'validate'
+              %label{"data-error" => "wrong", "data-success" => "right", :for => "password"} contrasena *
+          = alert
+          %p
+            = f.check_box :remember_me, :id => 'test6'
+            %label{:for => "test6"} Recordarme
+          .row.logpass
+            .input-field.col.s12.txtcenter.Accderbtn
+              %button.btn.waves-effect.waves-light{:name => "action", :type => "submit"} ACCEDER
+          %p.txtcenter Olvide mi contrasena
+          .forminfo
+            %span ? No estas registrado aun?
+            %span
+              %a{:href => "/users/sign_up"} REGISTRATE
+

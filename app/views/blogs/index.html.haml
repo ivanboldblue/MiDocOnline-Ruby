@@ -1,0 +1,112 @@
+%section.contentArea.BlogTab
+  %h1.blogHeading BLOG MIDOCONLINE
+  %section.BlogDes
+    .BlogLeft
+      %h2 In recent news
+      - @left_posts.pop(3).each do |post|
+        %h3
+          = post.post_sub_type.humanize rescue nil
+        %p
+          = post.title
+        .BlogPageImg
+          = image_tag(post.image.url(:large))
+          -#%img{:alt => "", :src => "/assets/blog-img-001.jpg", :title => ""}/
+        %p.middleTxtDemo
+          = post.description
+    - if @popular_posts.present?
+      .BlogRight
+        %h2 Popular
+        .RightnavBlog
+          - @popular_posts.pop(4).each do |post|
+            %p.RightBold
+              = post.title
+            %P
+              = post.description.first(100) rescue nil
+              %span.RightDays
+                ="#{time_ago_in_words(post.created_at)} ago"
+    - if @editors_posts.present?
+      .BlogRight
+        .EditPickDiv
+          %h3.EditPick Editors Pick
+        - @editors_posts.pop(10).each do |post|
+          .RightTech
+            .techImgLeft
+              = image_tag(post.image.url(:blog_medium))
+              -#%img{:alt => "", :src => "/assets/right-blog-04.jpg", :title => ""}
+            .techImgRight
+              %span
+                = post.title
+              %span.RightDays
+                ="#{time_ago_in_words(post.created_at)} ago"
+    - if @featuredpost.present?
+      .blogFeature
+        = image_tag(@featuredpost.image.url(:large))
+        =# image_tag("/assets/Blogimg-01.png")
+    - if @left_posts.present? or @popular_posts.present?
+      .BlogLeft
+        - if @left_posts.present?
+          %h2 In recent news
+          - @left_posts.each do |post|
+            %h3
+              = post.post_sub_type
+            %p
+              = post.title
+            .BlogPageImg
+              = image_tag(post.image.url(:large))
+              -#%img{:alt => "", :src => "/assets/blog-img-001.jpg", :title => ""}/
+            %p.middleTxtDemo
+              = post.description
+    - if @popular_posts.present?
+      .BlogRight
+        %h2 Popular
+        .RightnavBlog
+          - @popular_posts.each do |post|
+            %p.RightBold
+              = post.title
+            %P
+              = post.description.first(100) rescue nil
+              %span.RightDays 3 Days Ago
+    
+    - if false  
+      %section.TechBlog
+        .BlogLeft
+          %h3 Technology
+          %span.Techalt The new alternative for doctors
+          .BlogPageImg
+            %img{:alt => "", :src => "/assets/blog-img-02.jpg", :title => ""}
+              %p.middleTxtDemo Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra posuere elit mollis malesuada. Suspendisse malesuada justo sed lobortis placerat. Curabitur vitae ultrices velit, nec vtolutpat velit. Integer fringilla condimentum ligula. Donec rutrum, erat at mollis molestie, sapien urna tincidunt leo, vitae venenatis magna orci ut mauris. Aliquam dictum sagittis imperdiet. Suspendisse aliquam efficitur tellus, sed iaculis enim scelerisque eu.
+    - if false
+      .bottomBlog
+        .BlogLeft
+          %h3 Software
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra posuere elit mollis malesuada.
+          .BlogPageImg
+            %img{:alt => "", :src => "/assets/blog-img-001.jpg", :title => ""}/
+          %p.middleTxtDemo Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra posuere elit mollis malesuada. Suspendisse malesuada justo sed lobortis placerat. Curabitur vitae ultrices velit, nec vtolutpat velit. Integer fringilla condimentum ligula. Donec rutrum, erat at mollis molestie, sapien urna tincidunt leo, vitae venenatis magna orci ut mauris. Aliquam dictum sagittis imperdiet. Suspendisse aliquam efficitur tellus, sed iaculis enim scelerisque eu.
+        .BlogRight
+          %h2 Popular
+          .RightnavBlog
+            %p.RightBold Lorem ipsum dolor sit amet, conse ctetur adipiscing justo sed lobortis
+            %P
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              %span.RightDays 3 Days Ago
+          .RightnavBlog
+            %p.RightBold Lorem ipsum dolor sit amet, conse ctetur adipiscing justo sed lobortis
+            %P
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              %span.RightDays 3 Days Ago
+          .RightnavBlog
+            %p.RightBold Lorem ipsum dolor sit amet, conse ctetur adipiscing justo sed lobortis
+            %P
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              %span.RightDays 3 Days Ago
+          .RightnavBlog
+            %p.RightBold Lorem ipsum dolor sit amet, conse ctetur adipiscing justo sed lobortis
+            %P
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              %span.RightDays 3 Days Ago
+          .RightnavBlog.lastRightbottom
+            %p.RightBold Lorem ipsum dolor sit amet, conse ctetur adipiscing justo sed lobortis
+            %P
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              %span.RightDays 2 Days Ago

@@ -1,0 +1,12 @@
+.warper.container-fluid{"data-ng-app" => ""}
+  .page-header
+    %h1
+      Add Post
+  .col-md-12.col-xs-10.content_txt
+    %ul#myTab.nav.nav-tabs{:role => "tablist"}
+      %li
+        %a{:href => news_posts_path} Posts
+      %li.active
+        %a{:href => "javascript:void(0)"} Add Post
+    = render :partial => 'form'
+  .clearfix

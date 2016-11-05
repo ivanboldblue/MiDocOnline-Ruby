@@ -1,0 +1,61 @@
+.warper.container-fluid
+  .page-header
+    %h1
+      News Posts
+  .clearfix
+  .col-md-12.col-xs-10.content_txt.reportedPostPage.row
+    %div.editDropdown
+    %ul#myTab.nav.nav-tabs{:role => "tablist"}
+      %li.active
+        %a.pendingImages{:href => "javascript:void(0)"} News Posts
+      %li
+        %a.acceptedImages{:href => new_news_post_path} Add New    
+    #myTabContent.tab-content
+      #pendingImages.tab-pane.tabs-up.fade.in.active.panel.panel-default
+        .panel-body
+          .show-grid
+            .col-md-2
+              = 'Title'
+            .col-md-1
+              = 'Image'
+            .col-md-1
+              = 'Type'        
+            .col-md-1
+              = 'Date'
+            .col-md-6
+              = 'Description'
+            .col-md-1
+              = 'Action'
+          %p{:style => "height:20px;"}
+          - @news_posts.each do |news_post|
+            .show-grid
+              .col-md-2
+                = news_post.title
+              .col-md-1
+                = image_tag(news_post.image.url(:thumb))
+              .col-md-1
+                = news_post.post_type
+              .col-md-1
+                = news_post.created_at
+              .col-md-6
+                = news_post.description   
+              .col-md-1
+                %a.btn.btn-success.show-grid.disblebtn{:href => edit_news_post_path(:id => news_post.id)}
+                  %i.fa.fa-pencil
+                %a.btn.btn-danger.show-grid.disblebtn{:href => "/admin/reject_suggetions?ids={{suggestion.id}}&p=true"}
+                  %i.fa.fa-trash
+              - if false
+                .col-md-6.eDitDatte
+                  %a.btn.btn-primary.show-grid.disblebtn{:href => "news_posts/{{news_post.id}}"}
+                    %i.fa.fa-database 
+                  - if false
+                    %a.btn.btn-danger.show-grid.disblebtn{:href => "/admin/reject_suggetions?ids={{suggestion.id}}&p=true"}
+                      %i.fa.fa-trash
+                    %a.btn.btn-success.show-grid.disblebtn.add_challenge{"data-target" => "#modal-addChallenge1", "data-toggle" => "modal", :href => "#", :for => "{{suggestion.id}}"}
+                      %i.fa.fa-check
+                  - if false
+                    %a.btn.btn-primary.show-grid.disblebtn{:href => "/admin/give_points_to_user?ids={{suggestion.id}}", 'data-confirm' =>'Are you sure?'}
+                      %i.fa.fa-database
+            .clearfix  
+          .clearfix  
+  .clearfix

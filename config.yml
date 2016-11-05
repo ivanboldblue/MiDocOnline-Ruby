@@ -1,0 +1,10 @@
+quickblox:
+   application_id: 35038
+   auth_key: yVQnaBUHBuHHr9B
+   auth_secret: 4TWZa9b4vRSeudf
+   server: api.quickblox.com
+   user_owner_id: 44675
+   # user_login: user10
+   # user_password: pass
+   # device_platform: android
+   # device_udid: 1231asdsdf23123ss3

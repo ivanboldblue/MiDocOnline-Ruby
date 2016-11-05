@@ -1,0 +1,113 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"}
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %title Kwala
+    = stylesheet_link_tag  "cms-stylesheet", "ui-style", "jquery-ui-192custom-min","font_awesome", "font_awesome.min"
+    = csrf_meta_tag
+    = javascript_include_tag  "base_packaged", "search","cms-common.js"
+  %body
+    / cms container start
+    .overlay
+    .overlayBox#loading
+      %h2
+        Loading ....
+    #cms-container
+      .header.newAdminHdr
+        .wraper
+          .logo
+            %a{:href => root_path}
+              %img{:alt => "kwala logo", :src => "/assets/gguyguy.png"}
+          %span.menu-trigger
+            %a{:href => "javascript:void(0);"} Menu
+          .adminInfo
+            - if user_signed_in? and current_user.admin?
+              %span.newLoginas{:style=>"margin-right:0px"}
+                Logged in as:
+              %span.newadmIDs= current_user.email
+              %span.newadmIDs ||
+              = link_to '<i class="fa fa-power-off"></i>'.html_safe, destroy_user_session_path,:class=>'newLogoutadm'
+              
+              .clear
+            - if false
+              %span
+                Language:
+                = link_to_unless I18n.locale == :en, lt("English"), locale_url(request, "en")
+                |
+                = link_to_unless I18n.locale == :wk, lt("Hindi"), locale_url(request, "wk")
+          .clear
+
+      .mainNav.boxLink.newAdmMenu
+        .wraper
+          %ul#thumb
+            %li
+              %a{:href => '#',:class => params[:controller] == "home_jewelleries" ? "current" : ""}
+                %i.fa.fa-tachometer
+                %span Dashboard
+            %li
+              %a{:href => 'admin_users_path', :class => params[:controller] == "admin/users" ? "current" : ""}
+                %i.fa.fa-users
+                %span Users
+            %li
+              %a{:href => 'admin_challenges_path', :class => params[:controller] == "admin/challenges" ? "current" : ""}
+                %i.fa.fa-users
+                %span Challenges
+            %li
+              %a{:href => 'admin_posts_path', :class => params[:controller] == "admin/posts" ? "current" : ""}
+                %i.fa.fa-users
+                %span Posts
+            %li
+              %a{:href => 'admin_suggestions_path', :class => params[:controller] == "admin/suggestions" ? "current" : ""}
+                %i.fa.fa-users
+                %span Suggetions
+            %li
+              %a{:href => 'reported_posts_path', :class => params[:controller] == "reported_posts" ? "current" : ""}
+                %i.fa.fa-users
+                %span Reported Post
+            
+            
+          .clear
+      .bodyCnt.newadminBdycntr
+        .wraper
+          #inner-main
+            = yield
+      .clear
+
+:javascript
+  $(document).ready(function(){
+    $('.loading')
+      .hide()
+      .ajaxStart(function() {
+          $(this).show();
+      })
+      .ajaxStop(function() {
+          $(this).hide();
+      });
+  });
+  function update_attribute(url, status, current) {
+    $.ajax({
+    url: url + status,
+      success: function() {
+        $(current).val(status);
+        alert("successfull")
+      }
+    });
+  }
+
+:javascript
+  $(document).ready(function(){
+    $('.menu-trigger a').click(function(){
+      $('#thumb').slideToggle(500);
+      $('.menu-trigger').toggleClass('active_menu_trigger');
+    });
+    $(window).resize(function(){
+      var wWidth = $(window).width();
+      if(wWidth > 801){
+        $('#thumb').removeAttr('style');
+        $('.left_nav ul').removeAttr('style');
+      }
+    });
+  });

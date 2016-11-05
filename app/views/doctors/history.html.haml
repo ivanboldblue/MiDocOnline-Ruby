@@ -1,0 +1,53 @@
+= stylesheet_link_tag 'bootstrap-datetimepicker'
+= javascript_include_tag 'bootstrap-datepicker'
+%section.contentArea.dentroArea.txtcenter.formulaBlog{:style => 'padding:100px 0 125px;'}
+  .container
+    %section.formulaFormInfo.dentroblog.txtcenter
+      .row.lastLeftbtn
+        .input-field.col.s12.txtcenter
+          
+          %a.btn.waves-effect.waves-light.red{:href => video_chats_path} ANSWER EMERGENCY CALL
+  .formulaBlog.HISTORIAL.datePic
+    .historicaltab{:style => 'max-width:800px;'}
+      %h2 HISTORIAL
+      .row
+        .input-field.s12
+          = form_tag "/doctors/#{current_user.id}/history", :style => 'max-width:none;', :method => :get do
+            .col-sm-5
+              .hero-unit
+                = text_field_tag :from_date, params[:from_date], :id => 'example1', :class => 'datetab', :placeholder => "From"
+            .col-sm-5
+              .hero-unit
+                = text_field_tag :to_date, params[:to_date], :id => 'example2', :class => 'datetab', :placeholder => "To"
+            .col-sm-2
+              .hero-unit
+                = submit_tag 'Filter', :class => 'datetab', :style => 'border:none;height:50px;width:100%;}'
+    .historicaltab{:style => 'max-width:800px;'}
+      .row
+        - sum = 0
+        - @history.each_with_index do |h, index|
+          - index += 1
+          - sum += h.amount
+          .col.s12.m6
+            .card-action.newcard{:style => 'margin-bottom:10px;'}
+              .frstcard{:style => 'padding: 0;'}
+                %span
+                  = h.created_at.strftime('%d/%m/%y')
+                %span CHARGE
+                %span
+                  = h.patient_full_name
+                %span
+                  = "$ #{h.amount.to_i}"
+              %span.ortopidia
+                %em
+                  = h.doctor_speciality.capitalize rescue ''
+                %a.waves-effect.waves-teal.black{:href => "/chat_history/#{h.id}"} Chat History
+                %a.waves-effect.waves-teal.black{:href => "/video_chats?caller_id=#{h.patient_id}"} Call
+      %p.TotalTxt
+        = "Total :$ #{sum.to_i}"
+= render :partial => '/home/blog_section', :locals => {:@blogpost => @blogpost}
+= render :partial => '/home/news_blog_section', :locals => {:@posts => @posts}
+
+:css
+  .othrnewsblogdiv{display:none}
+  .hide_othrnewsdiv{display:none}

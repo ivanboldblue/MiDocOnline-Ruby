@@ -1,0 +1,42 @@
+.warper.container-fluid
+  .page-header
+    %h1
+      Contact Us
+  .clearfix
+  = will_paginate @contacts
+  .col-md-12.col-xs-10.content_txt.reportedPostPage.row
+    %ul#myTab.nav.nav-tabs{:role => "tablist"}
+      %li.active
+        %a.pendingImages{:href => "javascript:void(0)"}
+          = 'Contact Us'
+    #myTabContent.tab-content
+      #pendingImages.tab-pane.tabs-up.fade.in.active.panel.panel-default
+        .panel-body
+          .show-grid
+            .col-md-2
+              = 'Name'
+            .col-md-4
+              = 'Email'
+            .col-md-2
+              = 'Mobile No'
+            .col-md-3
+              = 'Message'
+            .col-md-1
+              = 'Date'
+          %p{:style => "height:20px;"}
+          - @contacts.each do |contact|
+            .show-grid
+              .col-md-2
+                = contact.name
+              .col-md-4
+                = contact.email
+              .col-md-2
+                = contact.mobile_no
+              .col-md-3
+                = contact.message
+              .col-md-1
+                = contact.created_at.strftime('%d/%m/%Y')
+            .clearfix  
+          .clearfix  
+    = will_paginate @contacts
+  .clearfix

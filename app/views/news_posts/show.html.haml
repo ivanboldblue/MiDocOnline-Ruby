@@ -1,0 +1,67 @@
+.warper.container-fluid
+  .page-header
+    %h1
+      patient Details
+  .col-md-6.col-xs-10
+    %ul#myTab.nav.nav-tabs{:role => "tablist"}
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#profile", :role => "tab"} Profile
+    #myTabContent.tab-content
+      #profile.tab-pane.tabs-up.fade.in.active.panel.panel-default
+        %div
+          .panel
+            .panel-body.table-responsive
+              %table.table.username_table.edit_user_table
+                = form_for @patient, :method => :patch do |f| 
+                  %thead
+                    %tr
+                      %th Attribute
+                      %th Value
+                  %tbody
+                    %tr
+                      %td Username
+                      %td
+                        = @patient.username
+                    %tr
+                      %td Email
+                      %td
+                        = @patient.email
+                    %tr
+                      %td Mobile
+                      %td
+                        = @patient.moibile_no rescue nil
+                    %tr
+                      %td Gender
+                      %td
+                        = @patient.gender rescue nil
+                    %tr
+                      %td DOB
+                      %td
+                        = @patient.dob.strftime('%d/%m/%Y') rescue nil
+                    %tr
+                      %td Height
+                      %td
+                        = @patient.height
+                    %tr
+                      %td Weight
+                      %td
+                        = @patient.weight
+                    %tr
+                      %td Blood Group
+                      %td
+                        = @patient.blood_group
+                    %tr
+                      %td Location
+                      %td
+                        = @patient.location
+                    %tr
+                      %td Address
+                      %td
+                        = @patient.address
+              .clearfix
+              .col-md-12
+                - if false
+                  %a.btn.btn-primary.btn-circle.btn-flat.btn-block{'href' => edit_admin_user_path(@user.id), 'data-confirm' =>'Are you sure?'}
+                    %i.fa.fa-trash-o
+                    Edit Again 
+              .clearfix

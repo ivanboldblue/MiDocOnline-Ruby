@@ -1,0 +1,30 @@
+<%= javascript_include_tag 'jquery_1_11_0.min' %>
+<div class="hideclass" style="display:none">
+<%= form_tag charges_path do %>
+<%= hidden_field_tag :specialize, params[:specialize]%>
+<%= hidden_field_tag :caller_id, params[:caller_id]%>
+<%- if false%>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: $40.00</span>
+    </label>
+  </article>
+<%end%>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Video calling charge"
+          data-amount="4000"
+          data-locale="auto"></script>
+<% end %>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.stripe-button-el').trigger('click');
+  });
+</script>

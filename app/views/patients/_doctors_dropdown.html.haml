@@ -1,0 +1,2 @@
+.input-field.s12
+  = select_tag :caller_id, options_for_select(@doctors.map{|d| [d.username, d.id]}, :selected => params[:specialize]), :prompt => 'Select Doctor', :class => 'selectDrpdwn', :id => 'selectdoctorDrpdwnspeciality'

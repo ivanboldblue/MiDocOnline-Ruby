@@ -1,0 +1,34 @@
+#myTabContent.tab-content
+  #profile.tab-pane.tabs-up.fade.in.active.panel.panel-default
+    %div
+      = form_for @doctor do |f|
+        .panel
+          .panel-body.table-responsive
+            %table.table.username_table.edit_user_table
+              %thead
+                %tr
+                  %th Attribute
+                  %th Value
+              %tbody
+                %tr
+                  %td Speciality type
+                  %td
+                    = f.select :emergency, options_for_select([['Kids', 'kids'], ['Adult','adult']], :selected => f.object.emergency), :include_blank => true
+                %tr
+                  %td Emergency From Date Time
+                  %td
+                    = f.datetime_select :from_time, :include_blank => true
+                %tr
+                  %td Emergency To Date Time
+                  %td
+                    = f.datetime_select :to_time, :include_blank => true
+                
+            .clearfix
+            
+            .col-md-4
+              %input.btn.btn-success.btn-circle.btn-flat.btn-block{:style => "margin: 10px 0;", :type => "submit", :value => "Save"}
+            .col-md-4
+              %a.btn.btn-primary.btn-circle.btn-flat.btn-block{:style => "margin: 10px 0;", :href => doctors_path}
+                Back
+            .clearfix
+          

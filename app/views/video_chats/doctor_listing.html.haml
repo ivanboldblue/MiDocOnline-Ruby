@@ -1,0 +1,55 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "UTF-8"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %title Midoconline
+    %link{:href => "https://quickblox.com/favicon.ico", :rel => "shortcut icon"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{:href => "main.css", :rel => "stylesheet"}
+    -#%script{:src => "/assets/quickblox.min.js"}
+    -#%script{:src => "/assets/mediajs.js"}
+    %script{:src => "/assets/config.js"}
+    %script{:src => "/assets/main.js"}
+  %body
+    .wrapper.webrtcp2p
+      %section.info
+        %p#infoMessage.center
+          = "Logged in as #{current_user.username}"
+      %section.chat.center
+        %section.choose-recipient.center
+          %h3.light.text-center Choose a Doctor to call
+          .users-wrap.recipient
+            - @qb_doctors.each do |doctor|
+              %a#9567545.user{:href => "/charges/new?specialize=#{params[:specialize]}&caller_id=#{doctor.id}", :style => 'display:inline-block'}
+                .icon-wrap
+                  - if doctor.type == 'Patient'
+                    %img{:src => "/assets/patient_img2.png"}
+                  - else
+                    %img{:src => "/assets/doctor_img2.png"}/
+                .name
+                  = doctor.username
+    %section#incomingCall.incoming.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %span.info-notice
+              %span.incoming-callType
+              Call from
+              %span.caller
+          .modal-body
+            .incoming-call-controls.l-flexbox.l-flexbox_flexcenter
+              %button#reject.btn.btn-default.btn_decline Decline
+              %button#accept.btn.btn-default.btn_accept Accept
+    %audio#callingSignal{:loop => ""}
+      %source{:src => "/assets/audio/calling.ogg"}
+      %source{:src => "/assets/audio/calling.mp3"}
+    %audio#ringtoneSignal{:loop => ""}
+      %source{:src => "/assets/audio/ringtone.ogg"}
+      %source{:src => "/assets/audio/ringtone.mp3"}
+    %audio#endCallSignal
+      %source{:src => "/assets/audio/end_of_call.ogg"}
+      %source{:src => "/assets/audio/end_of_call.mp3"}
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"}
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"}
+        
